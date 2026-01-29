@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Portfolio Design System - Dark Editorial Aesthetic */
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 45 10% 95%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 45 10% 95%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 45 10% 95%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 45 10% 85%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 45 5% 55%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 38 92% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom Portfolio Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(0 0% 4%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 4%) 100%);
+    --text-gradient: linear-gradient(135deg, hsl(45 10% 95%) 0%, hsl(38 92% 60%) 100%);
+    --glow-primary: 0 0 80px hsl(38 92% 50% / 0.15);
+    --shadow-elegant: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+
+    /* Typography */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 45 10% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .hero-bg {
+    background: var(--hero-gradient);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
